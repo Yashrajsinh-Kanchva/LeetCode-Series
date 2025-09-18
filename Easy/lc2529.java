@@ -1,4 +1,8 @@
 public class lc2529 {
+    public static void main(String[] args) {
+        Solution2529 s=new Solution2529();
+        System.out.println(s.maximumCount(new int[]{-3,-2,-1,0,0,1,2}));
+    }
 }
 class Solution2529 {
     public int maximumCount(int[] nums) {
