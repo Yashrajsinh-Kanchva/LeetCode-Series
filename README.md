@@ -49,15 +49,11 @@ This repository documents my DSA preparation journey — covering concepts from 
 ```
 LeetCode-Series
 │
-├── Arrays/
-├── Strings/
-├── LinkedList/
-├── Stack/
-├── Queue/
-├── Trees/
-├── Graph/
-├── DynamicProgramming/
+├── Easy/
+├── Medium/
+├── Hard/
 └── README.md
+
 ```
 
 Each folder contains:
