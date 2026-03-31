@@ -1,0 +1,15 @@
+# Write your MySQL query statement below
+with temp as(
+    (select requester_id as id, count(requester_id) as pCount
+    from RequestAccepted
+    group by requester_id)
+    union all
+    (select accepter_id as id, count(accepter_id) as pCount
+    from RequestAccepted
+    group by accepter_id)
+)
+
+select id,sum(pCount) as num from temp
+group by id
+order by num desc
+limit 1
