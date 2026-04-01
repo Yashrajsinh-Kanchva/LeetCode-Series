@@ -1,0 +1,42 @@
+# Write your MySQL query statement below
+(select 'Fall' as season, p.category, sum(s.quantity) as total_quantity,
+sum(s.quantity*s.price) as total_revenue from sales s
+inner join products p
+on s.product_id=p.product_id
+where right(left(sale_date,7),2) in (09,10,11)
+group by p.category
+order by total_quantity desc, total_revenue desc, p.category
+limit 1)
+
+union all
+
+(select 'Spring' as season, p.category, sum(s.quantity) as total_quantity,
+sum(s.quantity*s.price) as total_revenue from sales s
+inner join products p
+on s.product_id=p.product_id
+where right(left(sale_date,7),2) in (03,04,05)
+group by p.category
+order by total_quantity desc, total_revenue desc, p.category
+limit 1)
+
+union all
+
+(select 'Summer' as season, p.category, sum(s.quantity) as total_quantity,
+sum(s.quantity*s.price) as total_revenue from sales s
+inner join products p
+on s.product_id=p.product_id
+where right(left(sale_date,7),2) in (06,07,08)
+group by p.category
+order by total_quantity desc, total_revenue desc, p.category
+limit 1)
+
+union all
+
+(select 'Winter' as season, p.category, sum(s.quantity) as total_quantity,
+sum(s.quantity*s.price) as total_revenue from sales s
+inner join products p
+on s.product_id=p.product_id
+where right(left(sale_date,7),2) in (12,01,02)
+group by p.category
+order by total_quantity desc, total_revenue desc, p.category
+limit 1);
