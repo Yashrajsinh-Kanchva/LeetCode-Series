@@ -1,0 +1,14 @@
+# Write your MySQL query statement below
+with cte as(
+    select *,count(*) as cnt from reactions
+    group by user_id
+)
+select r.user_id, r.reaction as dominant_reaction,
+round(count(*)/cnt,2) as reaction_ratio
+from reactions r
+join cte c
+on r.user_id=c.user_id
+where cnt>=5
+group by r.reaction,r.user_id
+having reaction_ratio>=0.6
+order by reaction_ratio desc, user_id
